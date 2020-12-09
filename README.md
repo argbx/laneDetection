@@ -9,6 +9,7 @@ My pipeline consisted of 5 steps. First, I converted the images to grayscale.
 grey = grayscale(image)
 ```
 ![Stage1](https://github.com/argbx/laneDetection/blob/main/test_images_output/stage1/solidWhiteCurve.jpg?raw=true)
+
 then I applied gaussian blur with the value of 7
 ```
   gaussianBlur = gaussian_blur(grey,blur_value)
@@ -39,5 +40,13 @@ At the end I applied the lines over the original image
 mergedImage = weighted_img(houghLines,image)
 ```
 ![Final](https://github.com/argbx/laneDetection/blob/main/test_images_output/final/solidWhiteCurve.jpg?raw=true)
+
+### 2. Identify potential shortcomings with your current pipeline
+Since this is a pretty simple lane detection, there might be several shortcomings involved, such as on the roads where lanes are not visible, or there are signs on the road such as stop, or crosswalks. Another issue is that if there is traffic, then the line wont be easy to detect so different sort of mechanisim should be implemented.
+
+
+### 3. Suggest possible improvements to your pipeline
+
+At the moment, on video, we proccess each image seperatly without making any connection between the frames. And I think thats causing sometimes jumpy lane detection. If we could compare the frames with each other then I think we can get better results. Another issue is that after testing the challange questions, it was obvious that curvers on the lanes will cause problems, so we should detect more then linear lines.
 
 
